@@ -2540,10 +2540,12 @@ bool LoadBlockIndex(bool fAllowNew)
         block.nNonce   = !fTestNet ? 0 : 0;
 
 
-				uint256 hash = block.GetHash();
-                printf("%s\n", hash.ToString().c_str());
-                printf("%s\n", hashGenesisBlock.ToString().c_str());
-                printf("%s\n", block.hashMerkleRoot.ToString().c_str());
+	printf("Peershares Genesis Block Found:\n");
+        printf("genesis hash=%s\n", block.GetHash().ToString().c_str());
+        printf("merkle root=%s\n", block.hashMerkleRoot.ToString().c_str());
+        block.print();
+     
+        printf("End Peershares Genesis Block\n");
 				
         assert(block.hashMerkleRoot == uint256("0x"));
 
