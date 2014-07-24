@@ -2537,11 +2537,15 @@ bool LoadBlockIndex(bool fAllowNew)
         block.nVersion = 1;
         block.nTime    = 1406136354;
         block.nBits    = bnProofOfWorkLimit.GetCompact();
-        block.nNonce   = !fTestNet ? 8359109 : 294567;
+        block.nNonce   = !fTestNet ? 0 : 0;
 
 
-
-        assert(block.hashMerkleRoot == uint256("0xfd1751cc6963d88feca94c0d01da8883852647a37a0a67ce254d62dd8c9d5b2b"));
+				uint256 hash = block.GetHash();
+                printf("%s\n", hash.ToString().c_str());
+                printf("%s\n", hashGenesisBlock.ToString().c_str());
+                printf("%s\n", block.hashMerkleRoot.ToString().c_str());
+				
+        assert(block.hashMerkleRoot == uint256("0x"));
 
 
 	    block.print();
